@@ -1,32 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
- 
+  <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:id="@+id/Game"
+     android:layout_width="fill_parent"
+     android:layout_height="fill_parent"
+     android:gravity="center_horizontal" >
 
- <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/Game">
-<AbsoluteLayout android:layout_height="wrap_content" android:id="@+id/GameField" android:layout_width="fill_parent">
- <Button android:id="@+id/Button00" android:layout_height="100px" android:layout_width="100px" android:layout_x="5px" android:layout_y="5px" android:text="0" android:textSize="48px" android:background="#000"></Button>
- <Button android:id="@+id/Button01" android:layout_height="100px" android:layout_width="100px" android:layout_x="110px" android:layout_y="5px" android:text="1" android:textSize="48px"></Button>
-<Button android:id="@+id/Button02" android:layout_height="100px" android:layout_width="100px" android:layout_x="215px" android:layout_y="5px" android:text="2" android:textSize="48px"></Button>
-<Button android:id="@+id/Button03" android:layout_height="100px" android:layout_width="100px" android:layout_x="5px" android:layout_y="110px" android:text="3" android:textSize="48px"></Button>
-<Button android:id="@+id/Button04" android:layout_height="100px" android:layout_width="100px" android:layout_x="110px" android:layout_y="110px" android:text="4" android:textSize="48px"></Button>
-<Button android:id="@+id/Button05" android:layout_height="100px" android:layout_width="100px" android:layout_x="215px" android:layout_y="110px" android:text="5" android:textSize="48px"></Button>
-<Button android:id="@+id/Button06" android:layout_height="100px" android:layout_width="100px" android:layout_x="5px" android:layout_y="215px" android:text="6" android:textSize="48px"></Button>
-<Button android:id="@+id/Button07" android:layout_height="100px" android:layout_width="100px" android:layout_x="110px" android:layout_y="215px" android:text="7" android:textSize="48px"></Button>
-<Button android:id="@+id/Button08" android:layout_height="100px" android:layout_width="100px" android:layout_x="215px" android:layout_y="215px" android:text="8" android:textSize="48px"></Button>
-</AbsoluteLayout>
+     <TableLayout
+         android:id="@+id/GameBoard"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentTop="true"
+         android:layout_marginTop="24dp" >
 
-<TextView
-    android:id="@+id/MoveText"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_below="@+id/GameField"
-    android:text="@string/moves_title1"
-    android:textSize="28sp" >
-</TextView>
-<TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_below="@+id/MoveText" android:id="@+id/FeedbackTitleText" android:text="@string/feedback_title" android:textSize="28sp"></TextView>
-<TextView android:layout_below="@+id/GameField" android:layout_toRightOf="@+id/MoveText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/MoveCounter" android:text="0" android:textSize="28dp" android:layout_marginLeft="5px" android:layout_alignBaseline="@+id/MoveText"></TextView>
+         <TableRow
+             android:id="@+id/tableRow1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:gravity="center_horizontal" >
 
+             <Button
+                 android:id="@+id/one"
+                 android:layout_width="100dp"
+                 android:layout_height="100dp"
+                 android:text="@string/one"
+                 android:textSize="70dp" />
 
+             <Button
+                 android:id="@+id/two"
+                 android:layout_width="100dp"
+                 android:layout_height="100dp"
+                 android:text="@string/two"
+                 android:textSize="70dp" />
 
+             <Button
+                 android:id="@+id/three"
+                 android:layout_width="100dp"
+                 android:layout_height="100dp"
+                 android:text="@string/three"
+                 android:textSize="70dp" />
+         </TableRow>
 
-<TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:textSize="28sp" android:id="@+id/FeedbackText" android:layout_alignRight="@+id/GameField" android:layout_below="@+id/FeedbackTitleText" android:text="@string/game_feedback_text"></TextView>
+         <TableRow
+             android:id="@+id/tableRow2"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:gravity="center_horizontal" >
+
+             <Button
+                 android:id="@+id/four"
+                 android:layout_width="100dp"
+                 android:layout_height="100dp"
+                 android:text="@string/four"
+                 android:textSize="70dp" />
+
+             <Button
+                 android:id="@+id/five"
+                 android:layout_width="100dp"
+                 android:layout_height="100dp"
+                 android:text="@string/five"
+                 android:textSize="70dp" />
+
+             <Button
+                 android:id="@+id/six"
+                 android:layout_width="100dp"
+                 android:layout_height="100dp"
+                 android:text="@string/six"
+                 android:textSize="70dp" />
+         </TableRow>
+
+         <TableRow
+             android:id="@+id/tableRow3"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:gravity="center_horizontal" >
+
+             <Button
+                 android:id="@+id/seven"
+                 android:layout_width="100dp"
+                 android:layout_height="100dp"
+                 android:text="@string/seven"
+                 android:textSize="70dp" />
+
+             <Button
+                 android:id="@+id/eight"
+                 android:layout_width="100dp"
+                 android:layout_height="100dp"
+                 android:text="@string/eight"
+                 android:textSize="70dp" />
+
+             <Button
+                 android:id="@+id/nine"
+                 android:layout_width="100dp"
+                 android:layout_height="100dp"
+                 android:text="@string/nine"
+                 android:textSize="70dp" />
+         </TableRow>
+
+         <TextView
+             android:id="@+id/Information"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="10dp"
+             android:gravity="center_horizontal"
+             android:text="@string/info" />
+
+         <TableLayout
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content" >
+
+             <TableRow
+                 android:id="@+id/tableRow4"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="10dp"
+                 android:gravity="center_horizontal" >
+
+                 <TextView
+                     android:id="@+id/Tie"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="@string/ties" />
+
+                 <TextView
+                     android:id="@+id/tieCount"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginRight="10dp" />
+
+                 <TextView
+                     android:id="@+id/cpu"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="@string/cpu" />
+
+                 <TextView
+                     android:id="@+id/cpuTotal"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginRight="10dp" />
+
+                 <TextView
+                     android:id="@+id/user"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginRight="10dp"
+                     android:text="@string/user" />
+
+                 <TextView
+                     android:id="@+id/userTotal"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content" />
+
+             </TableRow>
+
+         </TableLayout>
+
+     </TableLayout>
+
 </RelativeLayout>
