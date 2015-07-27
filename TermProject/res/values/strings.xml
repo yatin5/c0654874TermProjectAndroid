@@ -3,6 +3,7 @@
 
     <string name="app_name">TermProject</string>
     <string name="User">User Goes First</string>
+    <string name="Cpu">Cpu Goes First</string>	
     <string name="turn_user">Its user turn</string>
     <string name="turn_cpu">Its Cpu\'s turn</string>
     <string name="tie">It is a tie!	</string>
@@ -21,5 +22,6 @@
     <string name="cpu">CPU:  </string>
     <string name="user">USER:  </string>
     <string name="ties">TIES:  </string>
+    <string name="action_settings">action_settings</string>
     
 </resources>
