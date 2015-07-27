@@ -1,11 +1,10 @@
 package com.example.termproject;
 
-import android.R.color;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.widget.SimpleCursorAdapter.ViewBinder;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -55,16 +54,16 @@ public class MainActivity extends Activity {
 	 
 	 Game = new TacTacToeGame();
 	 
-	 startGame();
+	 startNewGame();
 	 	
 }
-	private void startGame()
+	private void startNewGame()
 	{
 		Game.cleanBoard();
 		
 		for(int i = 0; i < gameBoardButtons.length; i++)
 		{
-			gameBoardButtons[i].setText("");
+			gameBoardButtons[i].setText(" ");
 			gameBoardButtons[i].setEnabled(true);
 			gameBoardButtons[i].setOnClickListener(new ButtonClickListener(i));
 		}
@@ -77,18 +76,68 @@ public class MainActivity extends Activity {
 		{
 			infoTextView.setText(R.string.turn_cpu);
 			int move = Game.getBoardMove();
-			setMove(Game.cpu, move);
+			setMove(TacTacToeGame.cpu, move);
 			userFirst = true;
 		}
+		
+		gameOver = false;
 	}
+	
+	private class ButtonClickListener implements View.OnClickListener {
+		int location;
+		public ButtonClickListener(int location) {
+			this.location = location;
+		}
+		public void onClick(View view) {
+			if(!gameOver){
+				if(gameBoardButtons[location].isEnabled()){
+					setMove(TacTacToeGame.user, location);
+					int winner = Game.checkForWinner();
+					
+					if(winner == 0){
+						infoTextView.setText(R.string.turn_cpu);
+						int move = Game.getBoardMove();
+						setMove(TacTacToeGame.cpu, move);
+						winner = Game.checkForWinner();
+					}
+					
+				 if (winner == 0) {
+						infoTextView.setText(R.string.turn_user);
+					}
+				 
+					else if(winner == 1) {
+						infoTextView.setText(R.string.tie);
+						tieIncerement++;
+						tieCount.setText(Integer.toString(tieIncerement));
+						gameOver = true;
+					}
+				 
+					else if(winner == 2) {
+						infoTextView.setText(R.string.user_wins);
+						userIncerement++;
+						userTotal.setText(Integer.toString(userIncerement));
+						gameOver = true;
+					}
+				 
+					else {
+						infoTextView.setText(R.string.cpu_wins);
+						cpuIncerement++;
+						cpuTotal.setText(Integer.toString(cpuIncerement));
+						gameOver = true;
+					}
+				}
+			}
+		}
+	}
+	
 	private void setMove(char player, int location)
 	{
 		Game.setMove(player, location);
 		gameBoardButtons[location].setEnabled(false);
 		gameBoardButtons[location].setText(String.valueOf(player));
-		if(player == Game.user)
+		if(player == TacTacToeGame.user)
 		{
-			gameBoardButtons[location].setTextColor(Color.GREEN);
+			gameBoardButtons[location].setTextColor(Color.BLACK);
 			
 		}
 		else {
@@ -99,7 +148,8 @@ public class MainActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
+		 MenuInflater inflater = getMenuInflater();  
+		 inflater.inflate(R.menu.main, menu);  
 		return true;
 	}
 
@@ -108,52 +158,17 @@ public class MainActivity extends Activity {
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
+		 switch(item.getItemId())  
+		  {  
+		   	case R.id.newGame:  
+		             startNewGame();  
+		               break;  
+		    case R.id.exitGame:  
+		               MainActivity.this.finish();  
+		               break;  
 	}
+		 return true;
+
+}
 	
-	private class ButtonClickListener implements View.OnClickListener {
-		int location;
-		public ButtonClickListener(int location) {
-			this.location = location;
-		}
-		public void onClick(View view) {
-			if(gameOver){
-				if(gameBoardButtons[location].isEnabled()){
-					setMove(Game.user, location);
-					int winner = Game.checkForWinner();
-					if(winner == 0){
-						infoTextView.setText(R.string.turn_cpu);
-						int move = Game.getBoardMove();
-						setMove(Game.cpu, move);
-						winner = Game.checkForWinner();
-					}
-					else if (winner == 0) {
-						infoTextView.setText(R.string.turn_user);
-					}
-					else if(winner == 1) {
-						infoTextView.setText(R.string.tie);
-						tieIncerement++;
-						tieCount.setText(Integer.toString(tieIncerement));
-						gameOver = true;
-					}
-					else if(winner == 2) {
-						infoTextView.setText(R.string.user_wins);
-						userIncerement++;
-						userTotal.setText(Integer.toString(userIncerement));
-						gameOver = true;
-					}
-					else {
-						infoTextView.setText(R.string.cpu_wins);
-						cpuIncerement++;
-						tieCount.setText(Integer.toString(tieIncerement));
-						gameOver = true;
-					}
-				}
-			}
-		}
-	}
 }

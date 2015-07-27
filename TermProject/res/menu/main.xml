@@ -1,4 +1,4 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
+ <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.termproject.MainActivity" >
 
@@ -7,5 +7,9 @@
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/action_settings"/>
+    
+     <item android:id="@+id/newGame" android:title="@string/newGame_label" android:icon="@android:drawable/ic_menu_add"></item>  
+   <item android:id="@+id/exitGame" android:title="@string/exitGame_label" android:icon="@android:drawable/ic_menu_close_clear_cancel"></item> 
 
-</menu>
+</menu> 
+ 

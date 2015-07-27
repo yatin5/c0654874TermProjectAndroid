@@ -23,5 +23,7 @@
     <string name="user">USER:  </string>
     <string name="ties">TIES:  </string>
     <string name="action_settings">action_settings</string>
+     <string name="newGame_label">New Game</string>  
+    <string name="exitGame_label">Exit Game</string>
     
 </resources>

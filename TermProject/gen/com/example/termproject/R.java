@@ -23,6 +23,8 @@ public final class R {
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
+        public static final int paper_background=0x7f020001;
+        public static final int tic_tac_toe=0x7f020002;
     }
     public static final class id {
         public static final int Game=0x7f080000;
@@ -33,8 +35,10 @@ public final class R {
         public static final int cpu=0x7f080012;
         public static final int cpuTotal=0x7f080013;
         public static final int eight=0x7f08000c;
+        public static final int exitGame=0x7f080018;
         public static final int five=0x7f080008;
         public static final int four=0x7f080007;
+        public static final int newGame=0x7f080017;
         public static final int nine=0x7f08000d;
         public static final int one=0x7f080003;
         public static final int seven=0x7f08000b;
@@ -63,9 +67,11 @@ public final class R {
         public static final int cpu=0x7f050012;
         public static final int cpu_wins=0x7f050007;
         public static final int eight=0x7f05000f;
+        public static final int exitGame_label=0x7f050017;
         public static final int five=0x7f05000c;
         public static final int four=0x7f05000b;
         public static final int info=0x7f050011;
+        public static final int newGame_label=0x7f050016;
         public static final int nine=0x7f050010;
         public static final int one=0x7f050008;
         public static final int seven=0x7f05000e;
